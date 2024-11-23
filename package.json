@@ -1,0 +1,14 @@
+{
+  "name": "com.rocketscience.communicationutils",
+  "version": "1.0.0",
+  "displayName": "Communication Utils",
+  "description": "Utilities for communication in rocket systems",
+  "unity": "2021.3",
+  "keywords": [
+    "Communication",
+    "Serial"
+  ],
+  "author": {
+    "name": "Rocket Science"
+  }
+}
