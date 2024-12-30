@@ -6,6 +6,9 @@ public enum DataLinkMessageType : byte
     DATALINK_MESSAGE_TELEMETRY_DATA_OBC_WITH_RESPONSE,
     DATALINK_MESSAGE_TELEMETRY_DATA_GCS,
     DATALINK_MESSAGE_TELEMETRY_RESPONSE,
+    DATALINK_MESSAGE_OBC_APP_EKF_TRANSMIT_START,
+    DATALINK_MESSAGE_OBC_APP_EKF_TRANSMIT_END,
+    DATALINK_MESSAGE_OBC_APP_EKF_DATA,
     DATALINK_MESSAGE_DATA_SAVED_CHUNK,
     DATALINK_MESSAGE_DATA_SAVED_SIZE,
     DATALINK_MESSAGE_DATA_REQUEST_READ,
@@ -106,6 +109,21 @@ public struct DataLinkFrameTelemetryDataGCS
 public struct DataLinkFrameTelemetryResponse
 {
     public byte controlFlags;
+}
+
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public struct DataLinkFrameOBCAppEKFData
+{
+    public float qw;
+    public float qx;
+    public float qy;
+    public float qz;
+    public float velocityN;
+    public float velocityE;
+    public float velocityD;
+    public float positionN;
+    public float positionE;
+    public float positionD;
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
