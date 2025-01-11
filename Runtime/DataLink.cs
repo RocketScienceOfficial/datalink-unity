@@ -118,12 +118,15 @@ public struct DataLinkFrameOBCAppEKFData
     public float qx;
     public float qy;
     public float qz;
-    public float velocityN;
-    public float velocityE;
-    public float velocityD;
     public float positionN;
     public float positionE;
     public float positionD;
+    public float velocityN;
+    public float velocityE;
+    public float velocityD;
+    public float accelerationN;
+    public float accelerationE;
+    public float accelerationD;
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
