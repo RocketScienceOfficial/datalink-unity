@@ -1,10 +1,11 @@
 {
-  "name": "com.rocketscience.communicationutils",
+  "name": "com.rocketscience.datalink-unity",
   "version": "1.0.0",
-  "displayName": "Communication Utils",
+  "displayName": "DataLink",
   "description": "Utilities for communication in rocket systems",
   "unity": "2021.3",
   "keywords": [
+	"DataLink",
     "Communication",
     "Serial"
   ],
