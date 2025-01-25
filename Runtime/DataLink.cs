@@ -132,27 +132,20 @@ public struct DataLinkFrameOBCAppEKFData
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct DataLinkFrameDataSavedChunk
 {
-    public uint time;
-    public float acc1x;
-    public float acc1y;
-    public float acc1z;
-    public float acc2x;
-    public float acc2y;
-    public float acc2z;
-    public float acc3x;
-    public float acc3y;
-    public float acc3z;
-    public float gyro1x;
-    public float gyro1y;
-    public float gyro1z;
-    public float gyro2x;
-    public float gyro2y;
-    public float gyro2z;
-    public float mag1x;
-    public float mag1y;
-    public float mag1z;
-    public int press;
-    public float kalmanHeight;
+    public ushort dt;
+    public float accX;
+    public float accY;
+    public float accZ;
+    public float velN;
+    public float velE;
+    public float velD;
+    public float posN;
+    public float posE;
+    public float posD;
+    public float qw;
+    public float qx;
+    public float qy;
+    public float qz;
     public double lat;
     public double lon;
     public double alt;
