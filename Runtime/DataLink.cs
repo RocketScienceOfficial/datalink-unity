@@ -177,12 +177,14 @@ public struct DataLinkFrameIGNRequestTest
 public struct DataLinkFrameConfigGet
 {
     public ushort mainHeight;
+    public byte emergencySpeed;
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct DataLinkFrameConfigSet
 {
     public ushort mainHeight;
+    public byte emergencySpeed;
 }
 
 public class DataLinkFrame
