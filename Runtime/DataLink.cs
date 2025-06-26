@@ -176,7 +176,7 @@ public struct DataLinkFrameDataACSSavedChunk
     public double lon;
     public double alt;
     public byte angleSetpoint;
-    public byte finAngle10;
+    public sbyte servoAngle10;
     public byte smState;
     public byte batVolts10;
     public byte gpsData;
