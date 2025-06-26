@@ -156,6 +156,33 @@ public struct DataLinkFrameDataSavedChunk
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
+public struct DataLinkFrameDataACSSavedChunk
+{
+    public ushort dt;
+    public float accX;
+    public float accY;
+    public float accZ;
+    public float velN;
+    public float velE;
+    public float velD;
+    public float posN;
+    public float posE;
+    public float posD;
+    public float qw;
+    public float qx;
+    public float qy;
+    public float qz;
+    public double lat;
+    public double lon;
+    public double alt;
+    public byte angleSetpoint;
+    public byte finAngle10;
+    public byte smState;
+    public byte batVolts10;
+    public byte gpsData;
+}
+
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct DataLinkFrameDataSavedSize
 {
     public uint size;
