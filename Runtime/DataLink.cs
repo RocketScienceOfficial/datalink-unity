@@ -178,7 +178,7 @@ public struct DataLinkFrameDataACSSavedChunk
     public byte angleSetpoint;
     public sbyte servoAngle10;
     public byte smState;
-    public byte batVolts10;
+    public ushort batteryVoltage100;
     public byte gpsData;
 }
 
