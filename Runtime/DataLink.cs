@@ -76,7 +76,7 @@ public struct DataLinkFrameTelemetryDataOBC
     public float qx;
     public float qy;
     public float qz;
-    public ushort velocity;
+    public ushort velocity_kmh;
     public ushort batteryVoltage100;
     public byte batteryPercentage;
     public double lat;
@@ -93,7 +93,7 @@ public struct DataLinkFrameTelemetryDataGCS
     public float qx;
     public float qy;
     public float qz;
-    public ushort velocity;
+    public ushort velocity_kmh;
     public ushort batteryVoltage100;
     public byte batteryPercentage;
     public double lat;
@@ -175,7 +175,8 @@ public struct DataLinkFrameDataACSSavedChunk
     public double lat;
     public double lon;
     public double alt;
-    public byte angleSetpoint;
+    public short angleSetpoint10;
+	public short pidRoll10;
     public sbyte servoAngle10;
     public byte smState;
     public ushort batteryVoltage100;
