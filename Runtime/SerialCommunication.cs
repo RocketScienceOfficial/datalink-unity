@@ -32,14 +32,6 @@ public class SerialCommunication : MonoBehaviour
 
     private void Update()
     {
-        lock (_serialReadQueueLock)
-        {
-            if (_serialReadQueue.Count > 0)
-            {
-                OnRead?.Invoke(this, new SerialCommunicationOnReadEventArgs { Frame = _serialReadQueue.Dequeue() });
-            }
-        }
-
         lock (_openPortLock)
         {
             if (_openPort)
@@ -57,6 +49,14 @@ public class SerialCommunication : MonoBehaviour
                 FinishDisconnect();
 
                 _disconnectPort = false;
+            }
+        }
+
+        lock (_serialReadQueueLock)
+        {
+            if (_serialReadQueue.Count > 0)
+            {
+                OnRead?.Invoke(this, new SerialCommunicationOnReadEventArgs { Frame = _serialReadQueue.Dequeue() });
             }
         }
     }
@@ -107,13 +107,13 @@ public class SerialCommunication : MonoBehaviour
 
                     _currentSerialPort.Open();
 
-                    _serialReadThread = new Thread(SerialReadThread);
-                    _serialReadThread.Start();
-
                     lock (_openPortLock)
                     {
                         _openPort = true;
                     }
+
+                    _serialReadThread = new Thread(SerialReadThread);
+                    _serialReadThread.Start();
                 }
                 catch (Exception ex)
                 {

@@ -72,16 +72,17 @@ public enum DataLinkFlagsIGN : byte
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct DataLinkFrameTelemetryDataOBC
 {
-    public float qw;
-    public float qx;
-    public float qy;
-    public float qz;
+    public short qw;
+    public short qx;
+    public short qy;
+    public short qz;
     public ushort velocity_kmh;
     public ushort batteryVoltage100;
     public byte batteryPercentage;
-    public double lat;
-    public double lon;
+    public int lat;
+    public int lon;
     public ushort alt;
+    public byte gpsData;
     public byte state;
     public byte controlFlags;
 }
@@ -89,20 +90,25 @@ public struct DataLinkFrameTelemetryDataOBC
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct DataLinkFrameTelemetryDataGCS
 {
-    public float qw;
-    public float qx;
-    public float qy;
-    public float qz;
+    public short qw;
+    public short qx;
+    public short qy;
+    public short qz;
     public ushort velocity_kmh;
     public ushort batteryVoltage100;
     public byte batteryPercentage;
-    public double lat;
-    public double lon;
+    public int lat;
+    public int lon;
     public ushort alt;
+    public int gcsLat;
+    public int gcsLon;
+    public byte gpsData;
     public byte state;
     public byte controlFlags;
     public byte signalStrengthNeg;
     public byte packetLossPercentage;
+    public ushort packetsReceived;
+    public ushort packetsTransmitted;
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
