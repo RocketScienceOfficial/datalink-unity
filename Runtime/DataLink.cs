@@ -155,7 +155,7 @@ public struct DataLinkFrameDataSavedChunk
     public double lat;
     public double lon;
     public double alt;
-    public ushort pressure;
+    public int pressure;
     public byte smState;
     public ushort batteryVoltage100;
     public byte ignFlags;
@@ -182,7 +182,7 @@ public struct DataLinkFrameDataACSSavedChunk
     public double lat;
     public double lon;
     public double alt;
-    public ushort pressure;
+    public int pressure;
     public short angleSetpoint10;
 	public short pidRoll10;
     public sbyte pidOutputAngle10;
