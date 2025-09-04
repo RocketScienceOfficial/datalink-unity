@@ -185,7 +185,7 @@ public struct DataLinkFrameDataACSSavedChunk
     public ushort pressure;
     public short angleSetpoint10;
 	public short pidRoll10;
-    public sbyte servoAngle10;
+    public sbyte pidOutputAngle10;
     public byte smState;
     public ushort batteryVoltage100;
     public byte gpsData;
