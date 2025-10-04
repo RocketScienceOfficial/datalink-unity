@@ -63,10 +63,10 @@ public enum DataLinkFlagsIGN : byte
     DATALINK_FLAGS_IGN_2_CONT = 1 << 1,
     DATALINK_FLAGS_IGN_3_CONT = 1 << 2,
     DATALINK_FLAGS_IGN_4_CONT = 1 << 3,
-    DATALINK_FLAGS_IGN_1_STATE = 1 << 4,
-    DATALINK_FLAGS_IGN_2_STATE = 1 << 5,
-    DATALINK_FLAGS_IGN_3_STATE = 1 << 6,
-    DATALINK_FLAGS_IGN_4_STATE = 1 << 7,
+    DATALINK_FLAGS_IGN_1_FIRED = 1 << 4,
+    DATALINK_FLAGS_IGN_2_FIRED = 1 << 5,
+    DATALINK_FLAGS_IGN_3_FIRED = 1 << 6,
+    DATALINK_FLAGS_IGN_4_FIRED = 1 << 7,
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
@@ -139,9 +139,23 @@ public struct DataLinkFrameOBCAppEKFData
 public struct DataLinkFrameDataSavedChunk
 {
     public ushort dt;
-    public float accX;
-    public float accY;
-    public float accZ;
+	public float accRawX;
+	public float accRawY;
+	public float accRawZ;
+	public float gyroRawX;
+	public float gyroRawY;
+	public float gyroRawZ;
+	public float magRawX;
+	public float magRawY;
+	public float magRawZ;
+    public double lat;
+    public double lon;
+    public double alt;
+    public byte gpsData;
+    public int pressure;
+    public float accN;
+    public float accE;
+    public float accD;
     public float velN;
     public float velE;
     public float velD;
@@ -152,23 +166,32 @@ public struct DataLinkFrameDataSavedChunk
     public float qx;
     public float qy;
     public float qz;
-    public double lat;
-    public double lon;
-    public double alt;
-    public int pressure;
     public byte smState;
     public ushort batteryVoltage100;
     public byte ignFlags;
-    public byte gpsData;
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct DataLinkFrameDataACSSavedChunk
 {
     public ushort dt;
-    public float accX;
-    public float accY;
-    public float accZ;
+   	public float accRawX;
+	public float accRawY;
+	public float accRawZ;
+	public float gyroRawX;
+	public float gyroRawY;
+	public float gyroRawZ;
+	public float magRawX;
+	public float magRawY;
+	public float magRawZ;
+    public double lat;
+    public double lon;
+    public double alt;
+    public byte gpsData;
+    public int pressure;
+    public float accN;
+    public float accE;
+    public float accD;
     public float velN;
     public float velE;
     public float velD;
@@ -179,16 +202,11 @@ public struct DataLinkFrameDataACSSavedChunk
     public float qx;
     public float qy;
     public float qz;
-    public double lat;
-    public double lon;
-    public double alt;
-    public int pressure;
+    public byte smState;
+    public ushort batteryVoltage100;
     public short angleSetpoint10;
 	public short pidRoll10;
     public sbyte pidOutputAngle10;
-    public byte smState;
-    public ushort batteryVoltage100;
-    public byte gpsData;
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
