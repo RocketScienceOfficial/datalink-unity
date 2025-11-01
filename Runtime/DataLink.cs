@@ -37,16 +37,28 @@ public enum DataLinkOptionsSMState : byte
     DATALINK_OPTIONS_SM_STATE_LANDED = 4,
 }
 
+public enum DataLinkFlagsTelemetryDataIGNFlags : byte
+{
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_1_CONT = 1 << 0,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_2_CONT = 1 << 1,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_3_CONT = 1 << 2,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_4_CONT = 1 << 3,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_1_RES_FIRE = 1 << 4,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_2_RES_FIRE = 1 << 5,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_3_RES_FIRE = 1 << 6,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_4_RES_FIRE = 1 << 7,
+}
+
 public enum DataLinkFlagsTelemetryDataControlFlags : byte
 {
     DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_ARM_ENABLED = 1 << 0,
     DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_3V3_ENABLED = 1 << 1,
     DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_5V_ENABLED = 1 << 2,
     DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_VBAT_ENABLED = 1 << 3,
-    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_1 = 1 << 4,
-    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_2 = 1 << 5,
-    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_3 = 1 << 6,
-    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_4 = 1 << 7,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_RESERVED_1 = 1 << 4,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_RESERVED_2 = 1 << 5,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_RESERVED_3 = 1 << 6,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_RESERVED_4 = 1 << 7,
 }
 
 public enum DataLinkFlagsTelemetryResponseControlFlags : byte
@@ -55,6 +67,10 @@ public enum DataLinkFlagsTelemetryResponseControlFlags : byte
     DATALINK_FLAGS_TELEMETRY_RESPONSE_CONTROL_3V3_ENABLED = 1 << 1,
     DATALINK_FLAGS_TELEMETRY_RESPONSE_CONTROL_5V_ENABLED = 1 << 2,
     DATALINK_FLAGS_TELEMETRY_RESPONSE_CONTROL_VBAT_ENABLED = 1 << 3,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_1_REQ_FIRE = 1 << 4,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_2_REQ_FIRE = 1 << 5,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_3_REQ_FIRE = 1 << 6,
+    DATALINK_FLAGS_TELEMETRY_DATA_CONTROL_IGN_4_REQ_FIRE = 1 << 7,
 }
 
 public enum DataLinkFlagsIGN : byte
@@ -84,6 +100,7 @@ public struct DataLinkFrameTelemetryDataOBC
     public ushort alt;
     public byte gpsData;
     public byte state;
+    public byte ignFlags;
     public byte controlFlags;
 }
 
@@ -104,6 +121,7 @@ public struct DataLinkFrameTelemetryDataGCS
     public int gcsLon;
     public byte gpsData;
     public byte state;
+    public byte ignFlags;
     public byte controlFlags;
     public byte signalStrengthNeg;
     public byte packetLossPercentage;
@@ -114,7 +132,7 @@ public struct DataLinkFrameTelemetryDataGCS
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct DataLinkFrameTelemetryResponse
 {
-    public byte controlFlags;
+    public byte flags;
 }
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
